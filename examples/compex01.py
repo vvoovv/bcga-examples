@@ -3,20 +3,20 @@ from cga import *
 @rule
 def Lot():
 	# leave only one split uncommented
-	split(z).into( 2>>repeat(Segment()) )
+	split(z).into(repeat(2>>Segment()))
 	split(x).into(
-		flt(1)>>Wall() |
-		2>>split(y).into(1>>Wall() | 1.5>>Window() | flt(1)>>Wall()) |
+		flt(1)>>Wall(),
+		2>>split(y).into(1>>Wall(), 1.5>>Window(), flt(1)>>Wall()),
 		flt(1)>>Wall()
 	)
 	split(x).into(
 		repeat(
-			flt(5)>>X(2.5) |
+			flt(5)>>X(2.5),
 			repeat(
-				flt(4)>>Y(1.5) |
+				flt(4)>>Y(1.5),
 				repeat(
-					flt(3)>>Y() |
-					flt(2)>>Z(1.25) |
+					flt(3)>>Y(),
+					flt(2)>>Z(1.25),
 					10>>Z()
 				)
 			)
