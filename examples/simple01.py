@@ -1,9 +1,9 @@
 from cga import *
 
-height = 20
-groundFloorHeight = 4
-floorHeight = 3.5
-tileWidth = 3
+height = attr(random(20, 40))
+groundFloorHeight = attr(4)
+floorHeight = attr(3.5)
+tileWidth = attr(3)
 wallColor = "#fefefe"
 
 @rule
