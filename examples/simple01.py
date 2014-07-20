@@ -4,7 +4,9 @@ height = attr(random(20, 40))
 groundFloorHeight = attr(4)
 floorHeight = attr(3.5)
 tileWidth = attr(3)
+windowColor = attr("#0000ff")
 wallColor = "#fefefe"
+
 
 @rule
 def Lot():
@@ -72,7 +74,7 @@ def EntranceTile():
 
 @rule
 def Window():
-	color("#0000ff")
+	color(windowColor)
 	size(rel(1), rel(1), 0.4)
 	translate(0,0,-0.25)
 	insert("window.blend")
