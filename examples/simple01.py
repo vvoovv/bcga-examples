@@ -1,4 +1,4 @@
-from cga import *
+from pro import *
 
 height = attr(random(20, 40))
 groundFloorHeight = attr(4)

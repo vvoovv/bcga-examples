@@ -1,4 +1,4 @@
-from cga import *
+from pro import *
 
 @rule
 def Lot():
