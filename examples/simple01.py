@@ -15,7 +15,7 @@ def Lot():
 
 @rule
 def Building():
-	comp(f).into(
+	decompose().into(
 		front>>FrontFacade(),
 		side>>SideFacade(),
 		top>>Roof()
