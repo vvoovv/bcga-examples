@@ -1,10 +1,10 @@
 from pro import *
 
-height = attr(random(20, 40))
-groundFloorHeight = attr(4)
-floorHeight = attr(3.5)
-tileWidth = attr(3)
-windowColor = attr("#0000ff")
+height = param(random(20, 40))
+groundFloorHeight = param(4)
+floorHeight = param(3.5)
+tileWidth = param(3)
+windowColor = param("#0000ff")
 wallColor = "#fefefe"
 
 
