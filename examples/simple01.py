@@ -4,9 +4,11 @@ height = param(random(20, 40))
 groundFloorHeight = param(4)
 floorHeight = param(3.5)
 tileWidth = param(3)
-windowColor = param("#0000ff")
-wallColor = "#fefefe"
+wallColor = param("#fefefe")
+roofColor = "#eeeeee"
 
+# All textures used in this prokitektura rule set are in public domain
+# The textures were taken from http://wiki.openstreetmap.org/wiki/Texture_Library
 
 @rule
 def Lot():
@@ -23,6 +25,7 @@ def Building():
 
 @rule
 def FrontFacade():
+	texture("MarekSeamlessBrick003.jpg", 0.5, 0.5)
 	split(y).into(
 		groundFloorHeight>>GroundFloor(),
 		repeat(flt(floorHeight)>>Floor())
@@ -30,6 +33,7 @@ def FrontFacade():
 
 @rule
 def SideFacade():
+	color(wallColor)
 	split(y).into(
 		groundFloorHeight>>Floor(),
 		repeat(flt(floorHeight)>>Floor())
@@ -37,23 +41,24 @@ def SideFacade():
 
 @rule
 def Roof():
-	color("#eeeeee")
+	color(roofColor)
 
 @rule
 def GroundFloor():
+	texture("MarekBrick002.jpg", 0.5, 0.5)
 	split(x).into(
-		1>>Wall(),
+		1>>SideWall(),
 		repeat(flt(tileWidth)>>Tile()),
 		flt(tileWidth)>>EntranceTile(),
-		1>>Wall()
+		1>>SideWall()
 	)
 
 @rule
 def Floor():
 	split(x).into(
-		1>>Wall(),
+		1>>SideWall(),
 		repeat(flt(tileWidth)>>Tile()),
-		1>>Wall()
+		1>>SideWall()
 	)
 
 @rule
@@ -67,32 +72,27 @@ def Tile():
 @rule
 def EntranceTile():
 	split(x).into(
-		flt(1)>>SolidWall(),
-		2>>split(y).into(2.5>>Door(), flt(2)>>SolidWall()),
-		flt(1)>>SolidWall()
+		flt(1)>>DoorWall(),
+		2>>split(y).into(2.5>>Door(), flt(2)>>DoorWall()),
+		flt(1)>>DoorWall()
 	)
 
 @rule
 def Window():
-	color(windowColor)
-	size(rel(1), rel(1), 0.4)
-	translate(0,0,-0.25)
-	insert("window.blend")
+	texture("MarekPlainWindow00003.jpg")
 
 @rule	
 def Door():
-	color("#ff0000")
-	size(rel(1), rel(1), 0.1)
-	translate(0, 0, -0.5)
-	insert("cube")
+	texture("431px-PL20F1SzczecinPlasticDoorRed.jpg")
 
 @rule
 def Wall():
-	color(wallColor)
+	pass
 
 @rule
-def SolidWall():
-	color(wallColor)
-	size(rel(1), rel(1), 0.4)
-	translate(0, 0, -0.4)
-	insert("cube")
+def SideWall():
+	texture("MarekBrick004.jpg", 0.625, 0.625)
+
+@rule
+def DoorWall():
+	texture("MarekBrick004.jpg", 0.625, 0.625)
