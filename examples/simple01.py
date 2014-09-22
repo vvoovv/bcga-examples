@@ -64,9 +64,9 @@ def Floor():
 @rule
 def Tile():
 	split(x).into(
-		flt(1)>>Wall(),
-		2>>split(y).into(1>>Wall(), 1.5>>Window(), flt(1)>>Wall()),
-		flt(1)>>Wall()
+		flt(1),
+		2>>split(y).into(1, 1.5>>Window(), flt(1)),
+		flt(1)
 	)
 
 @rule
@@ -84,10 +84,6 @@ def Window():
 @rule	
 def Door():
 	texture("431px-PL20F1SzczecinPlasticDoorRed.jpg")
-
-@rule
-def Wall():
-	pass
 
 @rule
 def SideWall():
