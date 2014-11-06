@@ -17,7 +17,7 @@ def Lot():
 
 @rule
 def Building():
-	decompose().into(
+	decompose(
 		front>>FrontFacade(),
 		side>>SideFacade(),
 		top>>Roof()
@@ -26,7 +26,7 @@ def Building():
 @rule
 def FrontFacade():
 	texture("MarekSeamlessBrick003.jpg", 0.5, 0.5)
-	split(y).into(
+	split(y,
 		groundFloorHeight>>GroundFloor(),
 		repeat(flt(floorHeight)>>Floor())
 	)
@@ -34,7 +34,7 @@ def FrontFacade():
 @rule
 def SideFacade():
 	color(wallColor)
-	split(y).into(
+	split(y,
 		groundFloorHeight>>Floor(),
 		repeat(flt(floorHeight)>>Floor())
 	)
@@ -46,7 +46,7 @@ def Roof():
 @rule
 def GroundFloor():
 	texture("MarekBrick002.jpg", 0.5, 0.5)
-	split(x).into(
+	split(x,
 		1>>SideWall(),
 		repeat(flt(tileWidth)>>Tile()),
 		flt(tileWidth)>>EntranceTile(),
@@ -55,7 +55,7 @@ def GroundFloor():
 
 @rule
 def Floor():
-	split(x).into(
+	split(x,
 		1>>SideWall(),
 		repeat(flt(tileWidth)>>Tile()),
 		1>>SideWall()
@@ -63,17 +63,17 @@ def Floor():
 
 @rule
 def Tile():
-	split(x).into(
+	split(x,
 		flt(1),
-		2>>split(y).into(1, 1.5>>Window(), flt(1)),
+		2>>split(y, 1, 1.5>>Window(), flt(1)),
 		flt(1)
 	)
 
 @rule
 def EntranceTile():
-	split(x).into(
+	split(x,
 		flt(1)>>DoorWall(),
-		2>>split(y).into(2.5>>Door(), flt(2)>>DoorWall()),
+		2>>split(y, 2.5>>Door(), flt(2)>>DoorWall()),
 		flt(1)>>DoorWall()
 	)
 
