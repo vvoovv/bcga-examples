@@ -1,16 +1,12 @@
 from pro import *
 
 
-# extrude(...) with subsequent decompose(...)
+# extrude(...) with embedded decompose(...).
+# The final result is the same as in extrude01.py
 
 @rule
 def Lot():
-	extrude(10)
-	Building()
-
-@rule
-def Building():
-	decompose(
+	extrude(10,
 		side>>SideFacade(),
 		top>>Roof()
 	)
@@ -31,8 +27,7 @@ def Roof():
 @rule
 def Middle():
 	color("#0000ff")
-	extrude(2)
-	decompose(
+	extrude(2,
 		left>>color("#ee1100"),
 		front>>color("#00ffff"),
 		right>>color("#0011ee"),

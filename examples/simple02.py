@@ -14,13 +14,7 @@ roofColor = "#eeeeee"
 
 @rule
 def Lot():
-	extrude(height)
-	Building()
-
-@rule
-def Building():
-	#return
-	decompose(
+	extrude(height,
 		front>>FrontFacade(),
 		side>>SideFacade(),
 		top>>Roof()
@@ -83,17 +77,17 @@ def EntranceTile():
 
 @rule
 def Window():
-	extrude(-0.2, inheritMaterialSides=True)
-	decompose(
-		front>>texture("MarekPlainWindow00003.jpg")
+	extrude(-0.2,
+		front>>texture("MarekPlainWindow00003.jpg"),
+		inheritMaterialSides=True
 	)
 
 @rule	
 def Door():
-	extrude(-0.3, inheritMaterialSides=True)
-	decompose(
+	extrude(-0.3,
 		front>>texture("431px-PL20F1SzczecinPlasticDoorRed.jpg"),
-		bottom>>delete()
+		bottom>>delete(),
+		inheritMaterialSides=True
 	)
 
 @rule
