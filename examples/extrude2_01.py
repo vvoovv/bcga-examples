@@ -65,10 +65,10 @@ def Face():
 	split(x,
 		rel(0.1),
 		flt()>>split(y,
-					1,
-					flt()>>texture("MarekPlainWindow00003.jpg"),
-					1
-				),
+				1,
+				flt()>>texture("MarekPlainWindow00003.jpg"),
+				1
+			),
 		rel(0.1)
 	)
 
@@ -78,8 +78,8 @@ def Door():
 	split(x,
 		flt(),
 		2>>split(y,
-					flt()>>texture("431px-PL20F1SzczecinPlasticDoorRed.jpg"),
-					1
-				),
+				flt()>>texture("431px-PL20F1SzczecinPlasticDoorRed.jpg"),
+				1
+			),
 		flt()
 	)
