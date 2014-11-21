@@ -79,7 +79,7 @@ def EntranceTile():
 def Window():
 	extrude(-0.2,
 		front>>texture("MarekPlainWindow00003.jpg"),
-		inheritMaterialSides=True
+		inheritMaterialSide=True
 	)
 
 @rule	
@@ -87,7 +87,7 @@ def Door():
 	extrude(-0.3,
 		front>>texture("431px-PL20F1SzczecinPlasticDoorRed.jpg"),
 		bottom>>delete(),
-		inheritMaterialSides=True
+		inheritMaterialSide=True
 	)
 
 @rule
