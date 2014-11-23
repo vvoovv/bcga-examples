@@ -12,6 +12,10 @@ def SimpleStairs(stepWidth, stepHeight, materialOperator):
         stepHeight (float): A height of a single step
         materialOperator (): An operator (e.g. texture(...)) or a rule that defines a material
     """
+    # apply material to the original shape
+    materialOperator()
+    
+    # define a list of steps for extrude2(...)
     stairs = []
     # total height of the stairs
     totalHeight = shape().size()[1]
@@ -27,6 +31,8 @@ def SimpleStairs(stepWidth, stepHeight, materialOperator):
         stairs.extend((coord, numSteps*stepWidth,  coord+relStepHeight, numSteps*stepWidth))
         coord += relStepHeight
         numSteps -= 1
-    stairs.append(section>>materialOperator)
-    stairs.append(cap>>materialOperator)
-    extrude2(*stairs, symmetric=False, axis=y)
+    # remove the first section
+    stairs[1] = stairs[1]>>delete()
+    
+    # extrude2(...) finally
+    extrude2(*stairs, symmetric=False, axis=y, inheritMaterialAll=True)
