@@ -30,7 +30,7 @@ def Lot():
         top>>hip_roof(roofPitch, 0.7,
             face>>RoofTiling(),
             fascia>>Fascia(),
-            overhang>>Overhang(),
+            soffit>>Soffit(),
             fasciaSize=0.3
         ),
         inheritMaterialSide=True
@@ -51,7 +51,7 @@ def Entrance():
             p, 0.5,   p, 0.5,   p, 0.5,   p, 0.5,   p, 0.5,   p, 0.5,   p, 0.5,   90, 0,
             face>>RoofTiling(),
             fascia>>Fascia(),
-            overhang>>Overhang(),
+            soffit>>Soffit(),
             fasciaSize=0.2
         ),
         inheritMaterialSection=True
@@ -66,7 +66,7 @@ def Erker():
             30, 0.5,   30, 0.5,   30, 0.5,   90, 0,
             face>>RoofTiling(),
             fascia>>Fascia(),
-            overhang>>Overhang(),
+            soffit>>Soffit(),
             fasciaSize=0.2
         ),
         section>>Face(),
@@ -110,5 +110,5 @@ def Fascia():
     texture("Fabi2-holz1.jpg", 0.6, 0.6)
 
 @rule
-def Overhang():
+def Soffit():
     texture("Fabi2-holz1.jpg", 0.6, 0.6)
