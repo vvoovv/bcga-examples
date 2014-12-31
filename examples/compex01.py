@@ -1,7 +1,7 @@
 from pro import *
 
 @rule
-def Lot():
+def Begin():
 	# leave only one split uncommented
 	split(z).into(repeat(2>>Segment()))
 	split(x).into(

@@ -11,7 +11,7 @@ roofColor = "#eeeeee"
 # The textures were taken from http://wiki.openstreetmap.org/wiki/Texture_Library
 
 @rule
-def Lot():
+def Begin():
 	extrude(height)
 	Building()
 

@@ -4,7 +4,7 @@ erkerDepth = param(1.5)
 roofPitch = param(40)
 
 @rule
-def Lot():
+def Begin():
     texture("MarekSeamlessBrick003.jpg", 0.5, 0.5)
     extrude(7,
         front>>split(y,
@@ -48,7 +48,7 @@ def Entrance():
         middle>>Door(),
         cap1>>delete(),
         cap2>>hip_roof(
-            p, 0.5,   p, 0.5,   p, 0.5,   p, 0.5,   p, 0.5,   p, 0.5,   p, 0.5,   90, 0,
+            90, 0,   p, 0.5,   p, 0.5,   p, 0.5,   p, 0.5,   p, 0.5,   p, 0.5,   p, 0.5,
             face>>RoofTiling(),
             fascia>>Fascia(),
             soffit>>Soffit(),
@@ -63,7 +63,7 @@ def Erker():
         0.3, erkerDepth,
         cap1>>delete(),
         cap2>>hip_roof(
-            30, 0.5,   30, 0.5,   30, 0.5,   90, 0,
+            90, 0,   30, 0.5,   30, 0.5,   30, 0.5,
             face>>RoofTiling(),
             fascia>>Fascia(),
             soffit>>Soffit(),

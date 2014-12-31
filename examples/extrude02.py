@@ -5,7 +5,7 @@ from pro import *
 # The final result is the same as in extrude01.py
 
 @rule
-def Lot():
+def Begin():
 	extrude(10,
 		side>>SideFacade(),
 		top>>Roof()

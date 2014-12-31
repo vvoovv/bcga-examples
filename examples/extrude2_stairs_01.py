@@ -13,7 +13,7 @@ stepHeight = param(0.5)
 stepWidth = param(0.3)
 
 @rule
-def Lot():
+def Begin():
     texture("MarekSeamlessBrick003.jpg", 0.5, 0.5)
     extrude(14, front>>Front(), side>>Side(), inheritMaterialAll=True)
 

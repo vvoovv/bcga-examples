@@ -4,7 +4,7 @@ from pro import *
 # extrude(...) with subsequent decompose(...)
 
 @rule
-def Lot():
+def Begin():
 	extrude(10)
 	Building()
 

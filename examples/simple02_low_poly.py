@@ -3,5 +3,5 @@ from pro import *
 height = param(random(20, 40))
 
 @rule
-def Lot():
+def Begin():
 	extrude(height)
