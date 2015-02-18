@@ -1,11 +1,12 @@
 from pro import *
+from assets.textures import *
 
 erkerDepth = param(1.5)
 roofPitch = param(40)
 
 @rule
 def Begin():
-    texture("MarekSeamlessBrick003.jpg", 0.5, 0.5)
+    texture(brickRed)
     extrude(7,
         front>>split(y,
             rel(0.8)>>split(x,
@@ -44,11 +45,10 @@ def Entrance():
         0.1, 3,
         0.2, 5,
         0.3, 6,
-        last>>color("#ff69b4"),
         middle>>Door(),
         cap1>>delete(),
         cap2>>hip_roof(
-            90, 0,   p, 0.5,   p, 0.5,   p, 0.5,   p, 0.5,   p, 0.5,   p, 0.5,   p, 0.5,
+            90>>delete(), 0,   p, 0.5,   p, 0.5,   p, 0.5,   p, 0.5,   p, 0.5,   p, 0.5,   p, 0.5,
             face>>RoofTiling(),
             fascia>>Fascia(),
             soffit>>Soffit(),
@@ -63,7 +63,7 @@ def Erker():
         0.3, erkerDepth,
         cap1>>delete(),
         cap2>>hip_roof(
-            90, 0,   30, 0.5,   30, 0.5,   30, 0.5,
+            90>>delete(), 0,   30, 0.5,   30, 0.5,   30, 0.5,
             face>>RoofTiling(),
             fascia>>Fascia(),
             soffit>>Soffit(),
@@ -79,7 +79,7 @@ def Face():
         rel(0.1),
         flt()>>split(y,
             1,
-            flt()>>extrude(-0.4, front>>texture("MarekPlainWindow00003.jpg"), inheritMaterialAll=True),
+            flt()>>extrude(-0.4, front>>texture(windowSimple), inheritMaterialAll=True),
             1
         ),
         rel(0.1)
@@ -87,12 +87,12 @@ def Face():
 
 @rule
 def Door():
-    texture("MarekSeamlessBrick003.jpg", 0.5, 0.5)
+    texture(brickRed)
     split(x,
         flt(),
         2>>split(y,
             flt()>>extrude(-0.4,
-                front>>texture("431px-PL20F1SzczecinPlasticDoorRed.jpg"),
+                front>>texture(doorPlasticRed),
                 bottom>>delete(),
                 inheritMaterialAll=True
             ),
@@ -103,12 +103,12 @@ def Door():
 
 @rule
 def RoofTiling():
-    texture("Flachdachpfanne_anthrazit.jpg", 1.5, 1.5)
+    texture(roofTilesAnthracite)
 
 @rule
 def Fascia():
-    texture("Fabi2-holz1.jpg", 0.6, 0.6)
+    texture(woodReddish)
 
 @rule
 def Soffit():
-    texture("Fabi2-holz1.jpg", 0.6, 0.6)
+    texture(woodReddish)
