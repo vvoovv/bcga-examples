@@ -1,12 +1,6 @@
 from pro import *
-
-# lib directory must be in sys.path
-import os, sys
-SCRIPT_DIR = os.path.dirname(os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__))))
-if SCRIPT_DIR not in sys.path:
-    sys.path.append(SCRIPT_DIR)
-
 from lib.stairs import SimpleStairs as Stairs
+from assets.textures import *
 
 stairsHeight = param(7.5)
 stepHeight = param(0.5)
@@ -14,7 +8,7 @@ stepWidth = param(0.3)
 
 @rule
 def Begin():
-    texture("MarekSeamlessBrick003.jpg", 0.5, 0.5)
+    texture(brickRed)
     extrude(14, front>>Front(), side>>Side(), inheritMaterialAll=True)
 
 @rule
@@ -22,12 +16,12 @@ def Front():
     split(y,
         stairsHeight>>split(x,
             flt(),
-            2>>Stairs(stepWidth, stepHeight, texture("MarekBrick002.jpg", 0.5, 0.5)),
+            2>>Stairs(stepWidth, stepHeight, texture(brickGrey)),
             flt()
         ),
         2>>split(x,
             flt(),
-            1.5>>texture("431px-PL20F1SzczecinPlasticDoorRed.jpg"),
+            1.5>>texture(doorPlasticRed),
             flt()
         ),
         flt(),
@@ -49,7 +43,7 @@ def Window():
             flt(),
             1.5>>split(x,
                 flt(),
-                1.5>>texture("MarekPlainWindow00003.jpg"),
+                1.5>>texture(windowSimple),
                 flt()
             ),
             flt()
