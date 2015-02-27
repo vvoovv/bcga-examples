@@ -1,3 +1,8 @@
+## Installation
+To run the examples download the latest version of Prokitektura from the [prokitektura-blender](https://github.com/vvoovv/prokitektura-blender/) repository.
+
+Watch a short [video](https://www.youtube.com/watch?v=ZJDHtPAF9d8) to see how to execute a Prokitektura example.
+
 ## Donations
 If you like Prokitektura, please consider making a donation:
 
